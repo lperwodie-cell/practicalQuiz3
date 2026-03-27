@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solar System</title>
+  <script src="script/aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; }
+  </style>
+</head>
+<body>
+
+<a-scene background="color: #00001a" vr-mode-ui="enabled: false">
+
+  <a-assets timeout="15000">
+    <img id="tex-sun"         src="texture/2k_sun.jpg" />
+    <img id="tex-mercury"     src="texture/2k_mercury.jpg" />
+    <img id="tex-venus"       src="texture/2k_venus_surface.jpg" />
+    <img id="tex-earth"       src="texture/2k_earth_daymap.jpg" />
+    <img id="tex-moon"        src="texture/2k_moon.jpg" />
+    <img id="tex-mars"        src="texture/2k_mars.jpg" />
+    <img id="tex-jupiter"     src="texture/2k_jupiter.jpg" />
+    <img id="tex-saturn"      src="texture/2k_saturn.jpg" />
+    <img id="tex-saturn-ring" src="texture/2k_saturn_ring_alpha.jpg" />
+    <img id="tex-uranus"      src="texture/2k_uranus.jpg" />
+    <img id="tex-neptune"     src="texture/2k_neptune.jpg" />
+    <img id="tex-stars"       src="texture/2k_stars_milky_way.jpg" />
+  </a-assets>
+
+  <!-- SKYBOX -->
+  <a-sky src="#tex-stars"></a-sky>
+
+  <!-- SUN -->
+  <a-sphere position="-14 0 0" radius="4"
+    src="#tex-sun"
+    emissive="#ff4400"
+    emissive-intensity="0.6"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: linear">
+  </a-sphere>
+  <a-sphere position="-14 0 0" radius="4.6"
+    material="color: #ff6600; transparent: true; opacity: 0.18; side: back">
+  </a-sphere>
+  <a-text value="SUN" position="-14 -5.4 0" align="center"
+    color="#ffcc44" width="7"></a-text>
+
+  <!-- ORBIT RINGS -->
+  <a-torus position="-14 0 0" radius="5.5"  radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="8"    radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="11"   radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="14"   radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="18.5" radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="23"   radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="27.5" radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+  <a-torus position="-14 0 0" radius="32"   radius-tubular="0.06" rotation="90 0 0"
+    material="color:#6699cc; opacity:0.75; transparent:true; shader:flat"></a-torus>
+
+  <!-- MERCURY -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+    <a-entity position="5.5 0 0">
+      <a-sphere radius="0.28" src="#tex-mercury"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-sphere>
+      <a-text value="MERCURY" position="0 0.65 0" align="center"
+        color="#dddddd" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- VENUS -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 12000; easing: linear">
+    <a-entity position="8 0 0">
+      <a-sphere radius="0.55" src="#tex-venus"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear">
+      </a-sphere>
+      <a-text value="VENUS" position="0 0.95 0" align="center"
+        color="#ffdd88" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- EARTH + MOON -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+    <a-entity position="11 0 0">
+      <a-sphere radius="0.6" src="#tex-earth"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+      </a-sphere>
+      <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 2500; easing: linear">
+        <a-sphere position="1.1 0 0" radius="0.15" src="#tex-moon"></a-sphere>
+        <a-text value="MOON" position="1.1 0.45 0" align="center"
+          color="#aaaaaa" width="3.5"></a-text>
+      </a-entity>
+      <a-text value="EARTH" position="0 1.05 0" align="center"
+        color="#44aaff" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- MARS -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 32000; easing: linear">
+    <a-entity position="14 0 0">
+      <a-sphere radius="0.4" src="#tex-mars"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 7000; easing: linear">
+      </a-sphere>
+      <a-text value="MARS" position="0 0.8 0" align="center"
+        color="#ff6633" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- JUPITER -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 65000; easing: linear">
+    <a-entity position="18.5 0 0">
+      <a-sphere radius="1.5" src="#tex-jupiter"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear">
+      </a-sphere>
+      <a-text value="JUPITER" position="0 2.1 0" align="center"
+        color="#ddbb88" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- SATURN + RINGS -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 95000; easing: linear">
+    <a-entity position="23 0 0">
+      <a-sphere radius="1.2" src="#tex-saturn"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-sphere>
+      <a-torus radius="2.0" radius-tubular="0.45" rotation="90 0 0"
+        material="src: #tex-saturn-ring; side: double; transparent: true; opacity: 0.85">
+      </a-torus>
+      <a-text value="SATURN" position="0 2.1 0" align="center"
+        color="#eedd99" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- URANUS -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 140000; easing: linear">
+    <a-entity position="27.5 0 0">
+      <a-sphere radius="0.9" src="#tex-uranus"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 9000; easing: linear">
+      </a-sphere>
+      <a-text value="URANUS" position="0 1.35 0" align="center"
+        color="#88dddd" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- NEPTUNE -->
+  <a-entity position="-14 0 0"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 180000; easing: linear">
+    <a-entity position="32 0 0">
+      <a-sphere radius="0.85" src="#tex-neptune"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+      </a-sphere>
+      <a-text value="NEPTUNE" position="0 1.35 0" align="center"
+        color="#4488ff" width="5"></a-text>
+    </a-entity>
+  </a-entity>
+
+  <!-- CAMERA - angled to show obvious 3D depth -->
+  <a-entity position="2 12 25" rotation="-25 10 0">
+    <a-camera look-controls wasd-controls fov="75">
+      <a-cursor color="#ffffff" opacity="0.3"></a-cursor>
+    </a-camera>
+  </a-entity>
+
+</a-scene>
+</body>
+</html>
